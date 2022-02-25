@@ -1,11 +1,6 @@
 import { InjectedConnector } from '@web3-react/injected-connector';
 import { WalletConnectConnector } from '@web3-react/walletconnect-connector';
 
-const RPC_URLS = {
-    1: process.env.RPC_URL_1,
-    56: process.env.RPC_URL_56
-}
-
 export const injected = new InjectedConnector({
     supportedChainIds: [1, 3, 56, 97]
 });
@@ -17,5 +12,5 @@ export const walletconnect = new WalletConnectConnector({
     },
     bridge: 'https://bridge.walletconnect.org',
     qrcode: true,
-    pollingInterval: 8000
+    pollingInterval: 15000
 })

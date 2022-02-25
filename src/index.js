@@ -1,9 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Web3 from 'web3';
+import { Provider } from "react-redux";
 import { Web3ReactProvider } from '@web3-react/core';
-import 'bootstrap/dist/css/bootstrap.css';
+import Web3 from 'web3';
+import store from './redux';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
+import './assets/css/style.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
@@ -12,9 +15,11 @@ function getLibrary(provider) {
 }
 
 ReactDOM.render(
-  <Web3ReactProvider getLibrary={getLibrary}>
-    <App />
-  </Web3ReactProvider>,
+  <Provider store={store}>
+    <Web3ReactProvider getLibrary={getLibrary}>
+      <App />
+    </Web3ReactProvider>
+  </Provider>,
   document.getElementById('root')
 );
 
